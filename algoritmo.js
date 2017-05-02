@@ -129,8 +129,8 @@ function calculos(){
 
 function mostrarResultados(){
   console.log("Tiempo total uso = "+ TPU);
-  console.log("CTSPU = "+ CTSPU);
-  console.log("Costo al mes = "+ (CTSPU*3600*24*30));
+  //console.log("CTSPU = "+ CTSPU);
+  console.log("Costo al mes: CPM = "+ (CTSPU*3600*24*30));
   console.log("PPU = "+ PPU + "%");
   console.log("Tiempo de Respuesta promedio: "+TR2);
 }
