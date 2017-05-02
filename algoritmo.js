@@ -105,17 +105,23 @@ function hayVaciamiento(){
 function calculos(){
   for(var i=0;i<NP;i++){
     TPU += STA[i];
-    CEPO += STO[i]*84*0.0045;
-    CEPU += STA[i]*290*0.0045;
+    CEPO += STO[i]*84*(1/3600)*(1/1000)*(4.5/1000);//ms
+    CEPU += STA[i]*290*(1/3600)*(1/1000)*(4.5/1000);//ms
   };
+  console.log("CEPO = "+ CEPO);
+  console.log("CEPU = "+ CEPU);
   var CTP = NP * 4900;
-  CT = CEPU + CEPO + CTP;
-  CTSPU = CT/TPU;
+  CT = CEPU + CEPO;
+  console.log("CT en TF[" + TF + "] = "+ CT);
+  //CTSPU = CT/TPU;
+  CTSPU = CT*(1000/TF);
   PPU = (TPU/(T*NP))*100;
 }
 
 function mostrarResultados(){
+  console.log("Tiempo total uso = "+ TPU);
   console.log("CTSPU = "+ CTSPU);
+  console.log("Costo al mes = "+ (CTSPU*3600*24*30));
   console.log("PPU = "+ PPU + "%");
 }
 
