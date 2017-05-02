@@ -16,6 +16,9 @@ var CEPU;
 var CTSPU;
 var PPU;
 var NP;
+var TR;
+var NT2;
+var TR2;
 
 function init_variables(tiempo_fin){
     HV = 99999999999999999999;
@@ -36,6 +39,9 @@ function init_variables(tiempo_fin){
     CTSPU = 0;
     PPU = 0;
     NP = 0;
+    TR=0;
+    NT2=0;
+    TR2=0;
 }
 
 function asignar_Tiempos(cTPS){//, cNPS){
@@ -107,6 +113,8 @@ function calculos(){
     TPU += STA[i];
     CEPO += STO[i]*84*(1/3600)*(1/1000)*(4.5/1000);//ms
     CEPU += STA[i]*290*(1/3600)*(1/1000)*(4.5/1000);//ms
+    NT2=NT2+NT[i];
+    TR=SS[i]-SLL[i];
   };
   console.log("CEPO = "+ CEPO);
   console.log("CEPU = "+ CEPU);
@@ -116,6 +124,7 @@ function calculos(){
   //CTSPU = CT/TPU;
   CTSPU = CT*(1000/T);
   PPU = (TPU/(T*NP))*100;
+  TR2=TR/NT2;
 }
 
 function mostrarResultados(){
@@ -123,6 +132,7 @@ function mostrarResultados(){
   console.log("CTSPU = "+ CTSPU);
   console.log("Costo al mes = "+ (CTSPU*3600*24*30));
   console.log("PPU = "+ PPU + "%");
+  console.log("Tiempo de Respuesta promedio: "+TR2);
 }
 
 function mostrarEstado(i){
