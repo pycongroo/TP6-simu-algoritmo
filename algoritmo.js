@@ -114,7 +114,7 @@ function calculos(){
   CT = CEPU + CEPO;
   console.log("CT en TF[" + TF + "] = "+ CT);
   //CTSPU = CT/TPU;
-  CTSPU = CT*(1000/TF);
+  CTSPU = CT*(1000/T);
   PPU = (TPU/(T*NP))*100;
 }
 
